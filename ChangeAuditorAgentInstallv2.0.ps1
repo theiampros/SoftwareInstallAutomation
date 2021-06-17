@@ -201,19 +201,19 @@
   
 #STEP 3: SMTP Email Section
         $TodayDate= Get-Date -DisplayHint Date
-        $smtphost = "internalmail.r02.xlgs.local"  
-        $from = "XLGS-ChangeAuditor@xlgroup.com"  
+        $smtphost = #insertyoursmtpaddress  
+        $from = #senderEmail  
         $to = Read-Host -Prompt "Please enter Recipients in 'TO' Field:"
         $cc = Read-Host -Prompt "Please enter Recipients in 'CC' Field:"
         $subject = "Started! BULK Change Auditor Agent v7.0.2 Deployment"
         $body = "Hello,
 
-        The Change Auditor Agent Deployment Task has been started by IAM Team at $TodayDate EST.
+        The Change Auditor Agent Deployment Task has been started by **Automation** Team at $TodayDate EST.
 
         Total No. of Servers in Current Batch: $TotalServers
 
         Regards,
-        XLC ADIMS IAM Team"
+        PowerShell Admins"
         Send-MailMessage -From $from -Body $body -To $to -Cc $cc -Subject $subject -SmtpServer $smtphost
 
 #STEP 4: Load Data from Files.
